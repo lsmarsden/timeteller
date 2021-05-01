@@ -12,4 +12,9 @@ public class BaseController {
     public String index() {
         return "The current time is " + LocalDateTime.now();
     }
+
+    @GetMapping("/secret")
+    public String secret() {
+        return "You found the secret page!";
+    }
 }
