@@ -14,7 +14,7 @@ node {
     }
     stage('Push to Docker') {
         docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-            docker.build('lsmarsden/time-teller:${commit_id}', '.').push()
+            def app = docker.build('lsmarsden/time-teller:${commit_id}', '.').push()
         }
     }
 }
