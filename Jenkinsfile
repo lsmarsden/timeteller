@@ -9,7 +9,7 @@ node {
         def testContainer = docker.image('adoptopenjdk/maven-openjdk8')
         testContainer.pull()
         testContainer.inside {
-        sh 'mvn test'
+        sh 'mvn package'
         }
     }
     stage('Push to Docker') {
