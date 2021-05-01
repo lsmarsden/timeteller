@@ -3,8 +3,8 @@ node {
     stage('Preparation') {
         checkout scm
         sh "git rev-parse --short HEAD > .git/commit-id"
-        sh "echo ${git rev-parse --short HEAD}"
         commit_id = readFile('.git/commit-id').trim()
+        sh "echo ${commit_id}"
     }
     stage('Test in container') {
         def testContainer = docker.image('adoptopenjdk/maven-openjdk8')
